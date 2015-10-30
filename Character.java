@@ -36,9 +36,6 @@ public class Character {
     private int maxHP;
     private int currentHP;
 
-    private int fortitude;      // Protection against disease and poisons
-    private int will;           // Protection against spells and fear effects
-
     private int baseAttack;
     private int numAttacks;
 
