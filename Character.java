@@ -246,11 +246,15 @@ public class Character {
 
 
     public int getFortitude() {
-        return getStatModifier(constitution) /* + profession.getConModifier() */;
+        return getStatModifier(constitution) + profession.getFortitudeModifier(level);
     }
 
     public int getWill() {
-        return getStatModifier(wisdom) /* + professon.getWisModifier() */;
+        return getStatModifier(wisdom) + profession.getWillModifier(level);
+    }
+
+    public int getReflex() {
+        return getStatModifier(dexterity) + profession.getReflexModifier(level);
     }
 
 
