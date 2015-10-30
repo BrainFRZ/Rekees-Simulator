@@ -36,6 +36,12 @@ public class Character {
     private int maxHP;
     private int currentHP;
 
+    private int fortitude;      // Protection against disease and poisons
+    private int will;           // Protection against spells and fear effects
+
+    private int baseAttack;
+    private int numAttacks;
+
     private int strength;
     private int dexterity;
     private int constitution;
@@ -66,6 +72,10 @@ public class Character {
 
         position = PositionType.STANDING;
         affectedBy = new ArrayList<>();
+    }
+
+    private static int getStatModifier(int statValue) {
+        return (statValue - 10) / 2;
     }
 
 
@@ -239,6 +249,17 @@ public class Character {
     public void setCharisma(int charisma) {
         this.charisma = charisma;
     }
+
+
+    public int getFortitude() {
+        return getStatModifier(constitution) /* + profession.getConModifier() */;
+    }
+
+    public int getWill() {
+        return getStatModifier(wisdom) /* + professon.getWisModifier() */;
+    }
+
+
 
     /**
      * @return the position
