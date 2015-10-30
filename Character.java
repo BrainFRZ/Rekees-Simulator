@@ -30,7 +30,7 @@ public class Character {
     private static final ProfessionType DEFAULT_PROFESSION = ProfessionType.WARRIOR;
 
     private final String name;
-    private final ProfessionType profession;
+    private ProfessionType profession;
     private RaceType race;
     private int level;
 
@@ -110,10 +110,24 @@ public class Character {
     }
 
     /**
+     * @param profession Profession to set
+     */
+    public void setProfession(ProfessionType profession) {
+        this.profession = profession;
+    }
+
+    /**
      * @return the profession
      */
     public ProfessionType getProfession() {
         return profession;
+    }
+
+    /**
+     * @return the profession's String representation
+     */
+    public String getProfessionName() {
+        return profession.toString();
     }
 
     /**
