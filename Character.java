@@ -27,9 +27,10 @@ public class Character {
     private static final int MIN_HP_VALUE = -10;
     private static final int MIN_STAT_VALUE = 0;
     private static final RaceType DEFAULT_RACE = RaceType.HUMAN;
+    private static final ProfessionType DEFAULT_PROFESSION = ProfessionType.WARRIOR;
 
     private final String name;
-    private final List<ProfessionType> profession;
+    private final ProfessionType profession;
     private RaceType race;
     private int level;
 
@@ -52,7 +53,7 @@ public class Character {
 
         level = 1;
         race = DEFAULT_RACE;
-        profession = new ArrayList<>();
+        profession = DEFAULT_PROFESSION;
 
         maxHP = DEFAULT_HP;
         currentHP = maxHP;
@@ -111,7 +112,7 @@ public class Character {
     /**
      * @return the profession
      */
-    public List<ProfessionType> getProfession() {
+    public ProfessionType getProfession() {
         return profession;
     }
 
