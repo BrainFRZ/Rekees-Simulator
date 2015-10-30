@@ -36,9 +36,6 @@ public class Character {
     private int maxHP;
     private int currentHP;
 
-    private int baseAttack;
-    private int numAttacks;
-
     private int strength;
     private int dexterity;
     private int constitution;
@@ -254,6 +251,17 @@ public class Character {
 
     public int getWill() {
         return getStatModifier(wisdom) /* + professon.getWisModifier() */;
+    }
+
+
+    public int getBaseAttack() {
+        /* return profession.getAttackModifier(); */
+        return 1;
+    }
+
+    public int getAttacksNumber() {
+     // return profession.getAttacksNumber(); */
+        return 1;
     }
 
 
