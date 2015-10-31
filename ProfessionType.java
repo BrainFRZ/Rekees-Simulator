@@ -48,7 +48,7 @@ public enum ProfessionType {
 
 
     /**
-     * Calculates the Profession's FortitudeSaveType modifier.
+     * Calculates the Profession's Fortitude modifier.
      *
      * @param level Character's current level
      * @return Profession's modifier of the WillSaveType save
@@ -72,7 +72,7 @@ public enum ProfessionType {
     }
 
     /**
-     * Calculates the Profession's FortitudeSaveType modifier.
+     * Calculates the Profession's Fortitude modifier.
      *
      * @param level Character's current level
      * @return Profession's modifier of the FortitudeSaveType save
@@ -97,7 +97,7 @@ public enum ProfessionType {
     }
 
     /**
-     * Calculates the Profession's ReflexSaveType modifier.
+     * Calculates the Profession's Reflex modifier.
      *
      * @param level Character's current level
      * @return Profession's modifier of the ReflexSaveType save
