@@ -6,18 +6,18 @@ package rekees;
  *
  * @author Terry Weiss
  */
-public enum ProfessionType {
-    BARBARIAN   (WillSaveType.POOR, FortitudeSaveType.GOOD, ReflexSaveType.POOR),
-    BARD        (WillSaveType.GOOD, FortitudeSaveType.POOR, ReflexSaveType.GOOD),
-    CLERIC      (WillSaveType.GOOD, FortitudeSaveType.GOOD, ReflexSaveType.POOR),
-    DRUID       (WillSaveType.GOOD, FortitudeSaveType.GOOD, ReflexSaveType.POOR),
-    FIGHTER     (WillSaveType.POOR, FortitudeSaveType.GOOD, ReflexSaveType.GOOD),
-    HOLYBLADE   (WillSaveType.POOR, FortitudeSaveType.GOOD, ReflexSaveType.POOR),
-    MAGE        (WillSaveType.GOOD, FortitudeSaveType.GOOD, ReflexSaveType.GOOD),
-    RANGER      (WillSaveType.GOOD, FortitudeSaveType.GOOD, ReflexSaveType.GOOD),
-    ROGUE       (WillSaveType.POOR, FortitudeSaveType.POOR, ReflexSaveType.GOOD),
-    WARRIOR     (WillSaveType.POOR, FortitudeSaveType.GOOD, ReflexSaveType.POOR),
-    WIZARD      (WillSaveType.GOOD, FortitudeSaveType.POOR, ReflexSaveType.POOR);
+public enum Profession {
+    BARBARIAN   (WillSave.POOR, FortitudeSave.GOOD, ReflexSave.POOR),
+    BARD        (WillSave.GOOD, FortitudeSave.POOR, ReflexSave.GOOD),
+    CLERIC      (WillSave.GOOD, FortitudeSave.GOOD, ReflexSave.POOR),
+    DRUID       (WillSave.GOOD, FortitudeSave.GOOD, ReflexSave.POOR),
+    FIGHTER     (WillSave.POOR, FortitudeSave.GOOD, ReflexSave.GOOD),
+    HOLYBLADE   (WillSave.POOR, FortitudeSave.GOOD, ReflexSave.POOR),
+    MAGE        (WillSave.GOOD, FortitudeSave.GOOD, ReflexSave.GOOD),
+    RANGER      (WillSave.GOOD, FortitudeSave.GOOD, ReflexSave.GOOD),
+    ROGUE       (WillSave.POOR, FortitudeSave.POOR, ReflexSave.GOOD),
+    WARRIOR     (WillSave.POOR, FortitudeSave.GOOD, ReflexSave.POOR),
+    WIZARD      (WillSave.GOOD, FortitudeSave.POOR, ReflexSave.POOR);
 
 
     private static int goodSaveModifier(int level) {
@@ -33,14 +33,14 @@ public enum ProfessionType {
     /**
      * Generates the given ProfessionType
      *
-     * @param wil <code>WillSaveType.STRONG</code> if profession has a good will save, or
+     * @param wil <code>WillSave.STRONG</code> if profession has a good will save, or
      * <code>POOR</code> otherwise
-     * @param fort <code>FortitudeSaveType.STRONG</code> if profession has a good fortitude save, or
+     * @param fort <code>FortitudeSave.STRONG</code> if profession has a good fortitude save, or
      * <code>POOR</code> otherwise
-     * @param ref <code>ReflexSaveType.STRONG</code> if profession has a good reflex save, or
+     * @param ref <code>ReflexSave.STRONG</code> if profession has a good reflex save, or
      * <code>POOR</code> otherwise
      */
-    ProfessionType(WillSaveType wil, FortitudeSaveType fort, ReflexSaveType ref) {
+    Profession(WillSave wil, FortitudeSave fort, ReflexSave ref) {
         will = wil;
         fortitude = fort;
         reflex = ref;
@@ -51,7 +51,7 @@ public enum ProfessionType {
      * Calculates the Profession's Fortitude modifier.
      *
      * @param level Character's current level
-     * @return Profession's modifier of the WillSaveType save
+     * @return Profession's modifier of the WillSave save
      * @throws IndexOutOfBoundsException If saving throw strength isn't valid
      */
     public int willModifier(int level) {
@@ -75,7 +75,7 @@ public enum ProfessionType {
      * Calculates the Profession's Fortitude modifier.
      *
      * @param level Character's current level
-     * @return Profession's modifier of the FortitudeSaveType save
+     * @return Profession's modifier of the FortitudeSave save
      * @throws IndexOutOfBoundsException If saving throw strength isn't valid
      */
     public int fortitudeModifier(int level) {
@@ -100,7 +100,7 @@ public enum ProfessionType {
      * Calculates the Profession's Reflex modifier.
      *
      * @param level Character's current level
-     * @return Profession's modifier of the ReflexSaveType save
+     * @return Profession's modifier of the ReflexSave save
      * @throws IndexOutOfBoundsException If saving throw strength isn't valid
      */
     public int reflexModifier(int level) {
@@ -123,9 +123,9 @@ public enum ProfessionType {
 
 
     /**
-     * String label of the given ProfessionType, using its name in Capital Case
+     * String label of the given Profession, using its name in Capital Case
      *
-     * @return ProfessionType's name in Capital Case
+     * @return Profession's name in Capital Case
      */
     @Override
     public String toString() {
@@ -133,22 +133,22 @@ public enum ProfessionType {
     }
 
 
-    private final WillSaveType will;
-    private final FortitudeSaveType fortitude;
-    private final ReflexSaveType reflex;
+    private final WillSave will;
+    private final FortitudeSave fortitude;
+    private final ReflexSave reflex;
 
 
 
 
-    private enum WillSaveType {
+    private enum WillSave {
         GOOD, POOR;
     }
 
-    private enum FortitudeSaveType {
+    private enum FortitudeSave {
         GOOD, POOR;
     }
 
-    private enum ReflexSaveType {
+    private enum ReflexSave {
         GOOD, POOR;
     }
 }

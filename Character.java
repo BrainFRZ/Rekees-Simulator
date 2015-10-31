@@ -8,7 +8,7 @@
  ****************************************************************************/
 package rekees;
 
-//import combatsim.AffectedType;
+//import combatsim.StatusEffect;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +17,7 @@ import java.util.List;
  * @author Terry Weiss
  */
 public class Character {
-    public enum PositionType {
+    public enum Position {
         FLYING, RIDING, STANDING, PRONE, ASLEEP, CLIMBING, FALLING, SWIMMING,
         SWIMMING_UNDERWATER, BOUND, UNCONSCIOUS, NEAR_DEATH, DEAD;
     }
@@ -26,12 +26,12 @@ public class Character {
     private static final int DEFAULT_HP = 8;
     private static final int MIN_HP_VALUE = -10;
     private static final int MIN_STAT_VALUE = 0;
-    private static final RaceType DEFAULT_RACE = RaceType.HUMAN;
-    private static final ProfessionType DEFAULT_PROFESSION = ProfessionType.WARRIOR;
+    private static final Race DEFAULT_RACE = Race.HUMAN;
+    private static final Profession DEFAULT_PROFESSION = Profession.WARRIOR;
 
     private final String name;
-    private ProfessionType profession;
-    private RaceType race;
+    private Profession profession;
+    private Race race;
     private int level;
 
     private int maxHP;
@@ -44,8 +44,8 @@ public class Character {
     private int wisdom;
     private int charisma;
 
-    private PositionType position;
-    private final List<AffectedType> affectedBy;
+    private Position position;
+    private final List<StatusEffect> affectedBy;
 
     public Character(String name) {
         this.name = name.substring(0, 1).toUpperCase()
@@ -65,7 +65,7 @@ public class Character {
         wisdom = DEFAULT_STAT_VALUE;
         charisma = DEFAULT_STAT_VALUE;
 
-        position = PositionType.STANDING;
+        position = Position.STANDING;
         affectedBy = new ArrayList<>();
     }
 
@@ -98,28 +98,28 @@ public class Character {
     /**
      * @return the race
      */
-    public RaceType getRace() {
+    public Race getRace() {
         return race;
     }
 
     /**
      * @param race the race to set
      */
-    public void setRace(RaceType race) {
+    public void setRace(Race race) {
         this.race = race;
     }
 
     /**
      * @param profession Profession to set
      */
-    public void setProfession(ProfessionType profession) {
+    public void setProfession(Profession profession) {
         this.profession = profession;
     }
 
     /**
      * @return the profession
      */
-    public ProfessionType getProfession() {
+    public Profession getProfession() {
         return profession;
     }
 
@@ -286,23 +286,23 @@ public class Character {
 
 
     /**
-     * @return the position
+     * @return Character's current position
      */
-    public PositionType getPosition() {
+    public Position getPosition() {
         return position;
     }
 
     /**
-     * @param position the position to set
+     * @param position Position to set
      */
-    public void setPosition(PositionType position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 
     /**
-     * @return the affectedBy
+     * @return List of statuses currently affecting the Character
      */
-    public List<AffectedType> getAffectedBy() {
+    public List<StatusEffect> getAffectedBy() {
         return affectedBy;
     }
 

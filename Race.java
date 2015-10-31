@@ -4,6 +4,6 @@ package rekees;
  *
  * @author Terry
  */
-public enum RaceType {
+public enum Race {
     HUMAN, DWARF, ELF;
 }

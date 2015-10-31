@@ -13,7 +13,7 @@ package rekees;
  *
  * @author Terry
  */
-public enum AffectedType {
+public enum StatusEffect {
     POISONED, MAGIC_SLEEP, FLOATING, DISEASED, DROWNING, SUFFOCATING, BUFFED,
     NEAR_DEATH, // For events that make you near death only during the event
     DEAD;       // For insta-kill events such as "Serpenticus"
