@@ -1,223 +1,154 @@
 package rekees;
 
 /**
+ * This is an enumerated list of all the Professions available in Rekees, and defines most of the
+ * attributes for each Profession.
  *
- * @author Terry
+ * @author Terry Weiss
  */
 public enum ProfessionType {
-    BARBARIAN {
-        @Override
-        public int getWillModifier(int level) {
-            return badSaveModifier(level);
-        }
-
-        @Override
-        public int getFortitudeModifier(int level) {
-            return goodSaveModifier(level);
-        }
-
-        @Override
-        public int getReflexModifier(int level) {
-            return badSaveModifier(level);
-        }
-    },
-    BARD {
-        @Override
-        public int getWillModifier(int level) {
-            return goodSaveModifier(level);
-        }
-
-        @Override
-        public int getFortitudeModifier(int level) {
-            return badSaveModifier(level);
-        }
-
-        @Override
-        public int getReflexModifier(int level) {
-            return goodSaveModifier(level);
-        }
-    },
-    CLERIC {
-        @Override
-        public int getWillModifier(int level) {
-            return goodSaveModifier(level);
-        }
-
-        @Override
-        public int getFortitudeModifier(int level) {
-            return goodSaveModifier(level);
-        }
-
-        @Override
-        public int getReflexModifier(int level) {
-            return badSaveModifier(level);
-        }
-    },
-    DRUID {
-        @Override
-        public int getWillModifier(int level) {
-            return goodSaveModifier(level);
-        }
-
-        @Override
-        public int getFortitudeModifier(int level) {
-            return goodSaveModifier(level);
-        }
-
-        @Override
-        public int getReflexModifier(int level) {
-            return badSaveModifier(level);
-        }
-    },
-    FIGHTER {
-        @Override
-        public int getWillModifier(int level) {
-            return badSaveModifier(level);
-        }
-
-        @Override
-        public int getFortitudeModifier(int level) {
-            return goodSaveModifier(level);
-        }
-
-        @Override
-        public int getReflexModifier(int level) {
-            return goodSaveModifier(level);
-        }
-    },
-    HOLYBLADE {
-        @Override
-        public int getWillModifier(int level) {
-            return badSaveModifier(level);
-        }
-
-        @Override
-        public int getFortitudeModifier(int level) {
-            return goodSaveModifier(level);
-        }
-
-        @Override
-        public int getReflexModifier(int level) {
-            return badSaveModifier(level);
-        }
-    },
-    MAGE {
-        @Override
-        public int getWillModifier(int level) {
-            return goodSaveModifier(level);
-        }
-
-        @Override
-        public int getFortitudeModifier(int level) {
-            return goodSaveModifier(level);
-        }
-
-        @Override
-        public int getReflexModifier(int level) {
-            return goodSaveModifier(level);
-        }
-    },
-    RANGER {
-        @Override
-        public int getWillModifier(int level) {
-            return goodSaveModifier(level);
-        }
-
-        @Override
-        public int getFortitudeModifier(int level) {
-            return goodSaveModifier(level);
-        }
-
-        @Override
-        public int getReflexModifier(int level) {
-            return goodSaveModifier(level);
-        }
-    },
-    ROGUE {
-        @Override
-        public int getWillModifier(int level) {
-            return badSaveModifier(level);
-        }
-
-        @Override
-        public int getFortitudeModifier(int level) {
-            return badSaveModifier(level);
-        }
-
-        @Override
-        public int getReflexModifier(int level) {
-            return goodSaveModifier(level);
-        }
-    },
-    WARRIOR {
-        @Override
-        public int getWillModifier(int level) {
-            return badSaveModifier(level);
-        }
-
-        @Override
-        public int getFortitudeModifier(int level) {
-            return goodSaveModifier(level);
-        }
-
-        @Override
-        public int getReflexModifier(int level) {
-            return badSaveModifier(level);
-        }
-    },
-    WIZARD {
-        @Override
-        public int getWillModifier(int level) {
-            return goodSaveModifier(level);
-        }
-
-        @Override
-        public int getFortitudeModifier(int level) {
-            return badSaveModifier(level);
-        }
-
-        @Override
-        public int getReflexModifier(int level) {
-            return badSaveModifier(level);
-        }
-    };
+    BARBARIAN   (WillSaveType.POOR, FortitudeSaveType.GOOD, ReflexSaveType.POOR),
+    BARD        (WillSaveType.GOOD, FortitudeSaveType.POOR, ReflexSaveType.GOOD),
+    CLERIC      (WillSaveType.GOOD, FortitudeSaveType.GOOD, ReflexSaveType.POOR),
+    DRUID       (WillSaveType.GOOD, FortitudeSaveType.GOOD, ReflexSaveType.POOR),
+    FIGHTER     (WillSaveType.POOR, FortitudeSaveType.GOOD, ReflexSaveType.GOOD),
+    HOLYBLADE   (WillSaveType.POOR, FortitudeSaveType.GOOD, ReflexSaveType.POOR),
+    MAGE        (WillSaveType.GOOD, FortitudeSaveType.GOOD, ReflexSaveType.GOOD),
+    RANGER      (WillSaveType.GOOD, FortitudeSaveType.GOOD, ReflexSaveType.GOOD),
+    ROGUE       (WillSaveType.POOR, FortitudeSaveType.POOR, ReflexSaveType.GOOD),
+    WARRIOR     (WillSaveType.POOR, FortitudeSaveType.GOOD, ReflexSaveType.POOR),
+    WIZARD      (WillSaveType.GOOD, FortitudeSaveType.POOR, ReflexSaveType.POOR);
 
 
     private static int goodSaveModifier(int level) {
         return ((level / 2) + 2);
     }
 
-    private static int badSaveModifier(int level) {
+    private static int poorSaveModifier(int level) {
         return (level / 3);
     }
 
-    /**
-     * Calculates the Profession's Fortitude modifier.
-     *
-     * @param level Character's current level
-     * @return Profession's modifier of the Will save
-     */
-    abstract int getWillModifier(int level);
+
 
     /**
-     * Calculates the Profession's Fortitude modifier.
+     * Generates the given ProfessionType
      *
-     * @param level Character's current level
-     * @return Profession's modifier of the Fortitude save
+     * @param wil <code>WillSaveType.STRONG</code> if profession has a good will save, or
+     * <code>POOR</code> otherwise
+     * @param fort <code>FortitudeSaveType.STRONG</code> if profession has a good fortitude save, or
+     * <code>POOR</code> otherwise
+     * @param ref <code>ReflexSaveType.STRONG</code> if profession has a good reflex save, or
+     * <code>POOR</code> otherwise
      */
-    abstract int getFortitudeModifier(int level);
+    ProfessionType(WillSaveType wil, FortitudeSaveType fort, ReflexSaveType ref) {
+        will = wil;
+        fortitude = fort;
+        reflex = ref;
+    }
+
 
     /**
-     * Calculates the Profession's Reflex modifier.
+     * Calculates the Profession's FortitudeSaveType modifier.
      *
      * @param level Character's current level
-     * @return Profession's modifier of the Reflex save
+     * @return Profession's modifier of the WillSaveType save
+     * @throws IndexOutOfBoundsException If saving throw strength isn't valid
      */
-    abstract int getReflexModifier(int level);
+    public int willModifier(int level) {
+        int modifier;
 
-    
+        switch(will) {
+            case GOOD:
+                modifier = goodSaveModifier(level);
+                break;
+            case POOR:
+                modifier = poorSaveModifier(level);
+                break;
+            default:
+                throw new IndexOutOfBoundsException("Save type " + will.name() + " doesn't exist.");
+        }
+
+        return modifier;
+    }
+
+    /**
+     * Calculates the Profession's FortitudeSaveType modifier.
+     *
+     * @param level Character's current level
+     * @return Profession's modifier of the FortitudeSaveType save
+     * @throws IndexOutOfBoundsException If saving throw strength isn't valid
+     */
+    public int fortitudeModifier(int level) {
+        int modifier;
+
+        switch(will) {
+            case GOOD:
+                modifier = goodSaveModifier(level);
+                break;
+            case POOR:
+                modifier = poorSaveModifier(level);
+                break;
+            default:
+                throw new IndexOutOfBoundsException("Save type " + fortitude.name()
+                                                            + " doesn't exist.");
+        }
+
+        return modifier;
+    }
+
+    /**
+     * Calculates the Profession's ReflexSaveType modifier.
+     *
+     * @param level Character's current level
+     * @return Profession's modifier of the ReflexSaveType save
+     * @throws IndexOutOfBoundsException If saving throw strength isn't valid
+     */
+    public int reflexModifier(int level) {
+        int modifier;
+
+        switch(will) {
+            case GOOD:
+                modifier = goodSaveModifier(level);
+                break;
+            case POOR:
+                modifier = poorSaveModifier(level);
+                break;
+            default:
+                throw new IndexOutOfBoundsException("Save type " + reflex.name()
+                                                            + " doesn't exist.");
+        }
+
+        return modifier;
+    }
+
+
+    /**
+     * String label of the given ProfessionType, using its name in Capital Case
+     *
+     * @return ProfessionType's name in Capital Case
+     */
     @Override
     public String toString() {
         return name().substring(0, 1).toUpperCase() + name().substring(1).toLowerCase();
+    }
+
+
+    private final WillSaveType will;
+    private final FortitudeSaveType fortitude;
+    private final ReflexSaveType reflex;
+
+
+
+
+    private enum WillSaveType {
+        GOOD, POOR;
+    }
+
+    private enum FortitudeSaveType {
+        GOOD, POOR;
+    }
+
+    private enum ReflexSaveType {
+        GOOD, POOR;
     }
 }
