@@ -81,7 +81,7 @@ public enum ProfessionType {
     public int fortitudeModifier(int level) {
         int modifier;
 
-        switch(will) {
+        switch(fortitude) {
             case GOOD:
                 modifier = goodSaveModifier(level);
                 break;
@@ -106,7 +106,7 @@ public enum ProfessionType {
     public int reflexModifier(int level) {
         int modifier;
 
-        switch(will) {
+        switch(reflex) {
             case GOOD:
                 modifier = goodSaveModifier(level);
                 break;
