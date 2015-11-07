@@ -1,8 +1,17 @@
+/**************************************************************************************************
+ *  Program Name:     Rekees Simulator
+ *  Class Name:       rekees.Profession
+ *  Author:           Terry Weiss
+ *  Date Written:     October 29, 2015
+ *  Program Description:
+ *     This class enumerated list of all the Professions available in Rekees,
+ *  and defines most of the attributes for each Profession.
+ **************************************************************************************************/
 package rekees;
 
 /**
- * This is an enumerated list of all the Professions available in Rekees, and defines most of the
- * attributes for each Profession.
+ * An enumerated list of all the Professions available in Rekees, and defines most of the attributes
+ * for each Profession.
  *
  * @author Terry Weiss
  */
@@ -31,13 +40,13 @@ public enum Profession {
 
 
     /**
-     * Generates the given ProfessionType
+     * Generates the given Profession
      *
-     * @param wil <code>WillSave.STRONG</code> if profession has a good will save, or
+     * @param wil <code>WillSave.GOOD</code> if profession has a good will save, or
      * <code>POOR</code> otherwise
-     * @param fort <code>FortitudeSave.STRONG</code> if profession has a good fortitude save, or
+     * @param fort <code>FortitudeSave.GOOD</code> if profession has a good fortitude save, or
      * <code>POOR</code> otherwise
-     * @param ref <code>ReflexSave.STRONG</code> if profession has a good reflex save, or
+     * @param ref <code>ReflexSave.GOOD</code> if profession has a good reflex save, or
      * <code>POOR</code> otherwise
      */
     Profession(WillSave wil, FortitudeSave fort, ReflexSave ref) {

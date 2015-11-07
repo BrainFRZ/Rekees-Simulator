@@ -1,5 +1,5 @@
 /****************************************************************************
- *  Program Name:     Combat Simulator
+ *  Program Name:     Rekees Simulator
  *  Class Name:       rekees.Character
  *  Author:           Terry Weiss
  *  Date Written:     October 29, 2015
@@ -8,7 +8,7 @@
  ****************************************************************************/
 package rekees;
 
-//import combatsim.StatusEffect;
+//import rekees.StatusEffect;
 import java.util.ArrayList;
 import java.util.List;
 
