@@ -163,7 +163,9 @@ public enum Race {
     WHITEBEARDS,
 
     //Humanoids with various snake-like qualities; very rare in Rekees; affinity for martial arts
-    YUAN_TI,
+    HALF_YUAN_TI,
+    PURE_YUAN_TI,
+    EXQUISITE_YUAN_TI,
 
 
     //Monster Races:
@@ -219,4 +221,17 @@ public enum Race {
 
     //Insectoids
     VERMIN;
+
+
+
+    /**
+     * String label of the given Race, using its name in Capital Case
+     *
+     * @return Race's name in Capital Case
+     */
+    @Override
+    public String toString() {
+        return name().substring(0, 1).toUpperCase() + name().substring(1).toLowerCase();
+    }
+
 }

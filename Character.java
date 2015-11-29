@@ -28,10 +28,12 @@ public class Character {
     private static final int MIN_STAT_VALUE = 0;
     private static final Race DEFAULT_RACE = Race.HUMAN;
     private static final Profession DEFAULT_PROFESSION = Profession.WARRIOR;
+    private static final Culture DEFAULT_CULTURE = Culture.WARRIOR;
 
-    private final String name;
-    private Profession profession;
+    private String name;
     private Race race;
+    private Culture culture;
+    private Profession profession;
     private int level;
 
     private int maxHP;
@@ -48,11 +50,10 @@ public class Character {
     private final List<StatusEffect> affectedBy;
 
     public Character(String name) {
-        this.name = name.substring(0, 1).toUpperCase()
-                        + name.substring(1).toLowerCase();
-
+        this.name = "Unnamed Character";
         level = 1;
         race = DEFAULT_RACE;
+        culture = DEFAULT_CULTURE;
         profession = DEFAULT_PROFESSION;
 
         maxHP = DEFAULT_HP;
@@ -75,6 +76,14 @@ public class Character {
 
 
     /**
+     * @param name Character's name
+     * @return Character's new name
+     */
+    public String setName(String name) {
+        return (this.name = name);
+    }
+
+    /**
      * @return Character's name
      */
     public String getName() {
@@ -90,9 +99,10 @@ public class Character {
 
     /**
      * @param level the level to set
+     * @return Character's new level
      */
-    public void setLevel(int level) {
-        this.level = level;
+    public int setLevel(int level) {
+        return (this.level = level);
     }
 
     /**
@@ -104,16 +114,33 @@ public class Character {
 
     /**
      * @param race the race to set
+     * @return Character's new race
      */
-    public void setRace(Race race) {
-        this.race = race;
+    public Race setRace(Race race) {
+        return (this.race = race);
+    }
+
+    /**
+     * @return the culture
+     */
+    public Culture getCulture() {
+        return culture;
+    }
+
+    /**
+     * @param culture the race to set
+     * @return Character's new culture
+     */
+    public Culture setCulture(Culture culture) {
+        return (this.culture = culture);
     }
 
     /**
      * @param profession Profession to set
+     * @return The Character's Profession
      */
-    public void setProfession(Profession profession) {
-        this.profession = profession;
+    public Profession setProfession(Profession profession) {
+        return (this.profession = profession);
     }
 
     /**
