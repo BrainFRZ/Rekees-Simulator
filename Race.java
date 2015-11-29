@@ -15,153 +15,153 @@ package rekees;
 public enum Race {
     // Core Races:
     //Immortal humans with demon blood
-    DEMONBORN,      
+    DEMONBORN,
 
     //Immortal humans with dragon blood
-    DRACONIAN,      
+    DRACONIAN,
 
     //Immortal humans with more dragon blood
-    DRAGONBORN,     
+    DRAGONBORN,
 
     //Proud, sturdy dwarves
-    MOUNTAIN_DWARF, 
-    
+    MOUNTAIN_DWARF,
+
     //Incredibly industrious and smart, ugly midgets
-    ROCK_GNOME,     
+    ROCK_GNOME,
 
     //Sadistic elves (often assassins) with light feet (hates everyone mutually)
-    DARK_ELF,       
+    DARK_ELF,
 
     //Any human with an elven parent
-    HALF_ELF,       
-    
+    HALF_ELF,
+
     //Incredibly tall, glowing beautiful elves with an affinity for everything
-    HIGH_ELF,       
-    
+    HIGH_ELF,
+
     //Slender elves connected with nature
-    WOOD_ELF,       
-    
+    WOOD_ELF,
+
     //Quick-witted, quick-footed, tiny humanoids
-    HALFING,        
-    
+    HALFING,
+
     //Incredibly monstrous, strong green/gray-skinned humanoids
-    ORC,            
-    
+    ORC,
+
     //Any human with an orc parent
-    HALF_ORC,       
-    
+    HALF_ORC,
+
     //Most populated race that live short but full lives
-    HUMAN,          
-    
-    
+    HUMAN,
+
+
     // Uncommon Races:
     //Humans born with Blackness; usually insane; affinity for dark magic
     BLACK_BLOODED,
-    
+
     //Strongest and biggest of Goblins; notably weaker than orcs
-    BUGBEAR,        
+    BUGBEAR,
 
     //Half-man half-horse; Well-attuned to nature and the stars
-    CENTAUR,        
+    CENTAUR,
 
     //Any race with a Demon parent
-    HALF_DEMON,     
+    HALF_DEMON,
 
     //Any living thing with a dragon parent
-    HALF_DRAGON,    
+    HALF_DRAGON,
 
     //Dwarves who live deeper underground; insane; hates everyone mutually
-    DUERGAR,        
+    DUERGAR,
 
     //Industrious elves; glow; have affinity for technology
-    FIRE_ELF,       
+    FIRE_ELF,
 
     //Incredibly small, fast Elves, who live underground; naturally suspicious
-    GRAY_ELF,       
-    
+    GRAY_ELF,
+
     //Largest, smartest, strongest Giants; live in sky castles; affinity for thunder magic
     CLOUD_GIANT,
-    
+
     //Barbaric Giants; really bad tempers; affinity for fire magic
     FIRE_GIANT,
-    
+
     //Human with Giant parent
-    HALF_GIANT,     
-    
+    HALF_GIANT,
+
     //Extremely strong warrior Giants; very common in S'rae; affinity for dark-magic
     ICE_GIANT,
-    
+
     //Gray-skinned Giants; incredibly stoic; affinity for earth magic
     STONE_GIANTS,
-    
+
     //Winged humanoid that can turn to stone when not moving
-    GARGOYLE,       
-    
+    GARGOYLE,
+
     //Smallest and stupidest of Giants; looks like very tall, strong Human
-    HILL_GIANT,     
-    
+    HILL_GIANT,
+
     //Hyena people often used by goblins as muscle; very, very dumb
-    GNOLL,          
-    
+    GNOLL,
+
     //Quick-witted and practically immortal; small and monstrous, but weak
-    GOBLIN,         
-    
+    GOBLIN,
+
     //Blind Giants; often used by Duergars for slave labor
-    GRIMLOCK,       
-    
+    GRIMLOCK,
+
     //First people; god-like affinity for everything; very near-extinct
     LIGHT_BORN,
-    
+
     //Monstrous Giants; near-extinct; very strong, fast, smart; extreme affinity to war;
     //served Ilithid
     OGRE,
-    
+
     //Unfortunate side-effect of breeding with Ogres; very stupid; weaker than Ogres
-    HALF_OGRE,      
-    
+    HALF_OGRE,
+
     //Product of years of in-breeding; monstrous giants; very strong, fast, stupid
     INBRED_OGRE,
-    
+
     //Human-sized Goblin; stronger, but less industrious, than Goblins; war affinity
-    HOBGOBLIN,      
-    
+    HOBGOBLIN,
+
     //Incredibly clever, ancient, god-like monsters; highly psychic/psionic; lives underground
     ILITHID,
-    
+
     //Tiny lizard-people; live underground; affinity for traps; very fast; hates Gray Elves
-    KOBOLD,         
-    
+    KOBOLD,
+
     //Humanoid lizards; affinity for magic; remarkably warm-blooded
     LIZARDFOLK,
-    
+
     //Incredibly strong bull-men; all males, but mate with Humans/Elves
     MINOTAUR,
-    
+
     //Excruciatingly beautiful (blinding) elf-like women; high affinity for druidic magic
     //(Elves are immune)
     NYMPH,
-    
+
     //Extremely tiny creature; god-like affinity for magic
     PIXIE,
-    
+
     //Dwarves who lives in the desert; no night-vision; outcasts
-    SAND_DWARF,     
-    
+    SAND_DWARF,
+
     //Insatiably lusty goat-men; all males, but mate with elves/humans/nymphs
     SATYR,
-    
+
     //Snow Elf; Sturdier than other elves, eyes glow when angry
-    SRAEN,          
-    
+    SRAEN,
+
     //Lizardfolk who live underground; bullies Kobolds; serves Ilithid; weaker than Humans
     TROGLODYTE,
-    
+
     //Near immortal, monstrous humanoid; very strong, greedy, slightly stupid
     TROLL,
-    
+
     //Dwarven-Sraens; Quicker, but more fragile, than mountain dwarves
     WHITEBEARDS,
-    
+
     //Humanoids with various snake-like qualities; very rare in Rekees; affinity for martial arts
     YUAN_TI;
 }
