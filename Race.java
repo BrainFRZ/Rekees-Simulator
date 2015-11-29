@@ -163,5 +163,60 @@ public enum Race {
     WHITEBEARDS,
 
     //Humanoids with various snake-like qualities; very rare in Rekees; affinity for martial arts
-    YUAN_TI;
+    YUAN_TI,
+
+
+    //Monster Races:
+    //Creatures who existed before civilization; often servants of Ilithid
+    ABBERATION,
+
+    //Non-fantasy animals
+    ANIMAL,
+
+    //Artifical beings; many created by mages/wizards
+    CONSTRUCT,
+
+    //God-like, flying reptiles; god-like affinity for cosmic power
+    BRASS_DRAGON,
+    BRONZE_DRAGON,
+    COPPER_DRAGON,
+    GOLD_DRAGON,
+    SILVER_DRAGON,
+    BLACK_DRAGON,
+    BLUE_DRAGON,
+    GREEN_DRAGON,
+    RED_DRAGON,
+    WHITE_DRAGON,
+    PSEUDO_DRAGON,
+
+    //Typically creatures made of air, earth, fire or water
+    AIR_ELEMENTAL,
+    EARTH_ELEMENTAL,
+    FIRE_ELEMENTAL,
+    WATER_ELEMENTAL,
+    BLACK_ELEMENTAL,
+
+    //Fantasy creatures/animals
+    BEAST,
+
+    //Creatures from warring realm of fire
+    DEMON,
+
+    //Creatures composed of ooze; sometimes sentient
+    OOZE,
+
+    //Creatures from other realms
+    OUTSIDER,
+
+    //Hostile, self-aware plants
+    PLANT,
+
+    //Creatures that are lizard-like, but not dragons
+    REPTILIAN,
+
+    //Creatures that should be dead, but aren't
+    UNDEAD,
+
+    //Insectoids
+    VERMIN;
 }
