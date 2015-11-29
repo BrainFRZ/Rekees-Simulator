@@ -273,9 +273,8 @@ public class Character {
     }
 
 
-    public int getBaseAttack() {
-        /* return profession.getAttackModifier(); */
-        return 1;
+    public int getAttackModifier() {
+        return profession.attackModifier(level);
     }
 
     public int getAttacksNumber() {

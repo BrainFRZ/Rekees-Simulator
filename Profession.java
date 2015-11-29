@@ -6,6 +6,10 @@
  *  Program Description:
  *     This class enumerated list of all the Professions available in Rekees,
  *  and defines most of the attributes for each Profession.
+ * 
+ * To Do:
+ * - Add support for Flurry attacks. Design special treatment for mages when wielding staff or
+ *   spell.
  **************************************************************************************************/
 package rekees;
 
@@ -16,25 +20,37 @@ package rekees;
  * @author Terry Weiss
  */
 public enum Profession {
-    BARBARIAN   (WillSave.POOR, FortitudeSave.GOOD, ReflexSave.POOR),
-    BARD        (WillSave.GOOD, FortitudeSave.POOR, ReflexSave.GOOD),
-    CLERIC      (WillSave.GOOD, FortitudeSave.GOOD, ReflexSave.POOR),
-    DRUID       (WillSave.GOOD, FortitudeSave.GOOD, ReflexSave.POOR),
-    FIGHTER     (WillSave.POOR, FortitudeSave.GOOD, ReflexSave.GOOD),
-    HOLYBLADE   (WillSave.POOR, FortitudeSave.GOOD, ReflexSave.POOR),
-    MAGE        (WillSave.GOOD, FortitudeSave.GOOD, ReflexSave.GOOD),
-    RANGER      (WillSave.GOOD, FortitudeSave.GOOD, ReflexSave.GOOD),
-    ROGUE       (WillSave.POOR, FortitudeSave.POOR, ReflexSave.GOOD),
-    WARRIOR     (WillSave.POOR, FortitudeSave.GOOD, ReflexSave.POOR),
-    WIZARD      (WillSave.GOOD, FortitudeSave.POOR, ReflexSave.POOR);
+    BARBARIAN   (WillSave.POOR, FortitudeSave.GOOD, ReflexSave.POOR, AttackModifier.GOOD),
+    BARD        (WillSave.GOOD, FortitudeSave.POOR, ReflexSave.GOOD, AttackModifier.AVERAGE),
+    CLERIC      (WillSave.GOOD, FortitudeSave.GOOD, ReflexSave.POOR, AttackModifier.AVERAGE),
+    DRUID       (WillSave.GOOD, FortitudeSave.GOOD, ReflexSave.POOR, AttackModifier.AVERAGE),
+    FIGHTER     (WillSave.POOR, FortitudeSave.GOOD, ReflexSave.GOOD, AttackModifier.GOOD),
+    HOLYBLADE   (WillSave.POOR, FortitudeSave.GOOD, ReflexSave.POOR, AttackModifier.GOOD),
+    MAGE        (WillSave.GOOD, FortitudeSave.GOOD, ReflexSave.GOOD, AttackModifier.POOR),
+    RANGER      (WillSave.GOOD, FortitudeSave.GOOD, ReflexSave.GOOD, AttackModifier.GOOD),
+    ROGUE       (WillSave.POOR, FortitudeSave.POOR, ReflexSave.GOOD, AttackModifier.AVERAGE),
+    WARRIOR     (WillSave.POOR, FortitudeSave.GOOD, ReflexSave.POOR, AttackModifier.GOOD),
+    WIZARD      (WillSave.GOOD, FortitudeSave.POOR, ReflexSave.POOR, AttackModifier.POOR);
 
 
+    private static int poorSaveModifier(int level) {
+        return (level / 3);
+    }
+    
     private static int goodSaveModifier(int level) {
         return ((level / 2) + 2);
     }
 
-    private static int poorSaveModifier(int level) {
-        return (level / 3);
+    private static int poorAttackModifier(int level) {
+        return (level / 2);
+    }
+    
+    private static int averageAttackModifier(int level) {
+        return (level * 3 / 4);
+    }
+    
+    private static int goodAttackModifier(int level) {
+        return level;
     }
 
 
@@ -49,10 +65,11 @@ public enum Profession {
      * @param ref <code>ReflexSave.GOOD</code> if profession has a good reflex save, or
      * <code>POOR</code> otherwise
      */
-    Profession(WillSave wil, FortitudeSave fort, ReflexSave ref) {
-        will = wil;
+    Profession(WillSave wil, FortitudeSave fort, ReflexSave ref, AttackModifier atk) {
+        will      = wil;
         fortitude = fort;
-        reflex = ref;
+        reflex    = ref;
+        attack    = atk;
     }
 
 
@@ -130,6 +147,34 @@ public enum Profession {
         return modifier;
     }
 
+    /**
+     * Calculates the Profession's Reflex modifier.
+     *
+     * @param level Character's current level
+     * @return Profession's modifier of the ReflexSave save
+     * @throws IndexOutOfBoundsException If saving throw strength isn't valid
+     */
+    public int attackModifier(int level) {
+        int modifier;
+
+        switch(attack) {
+            case POOR:
+                modifier = poorAttackModifier(level);
+                break;
+            case AVERAGE:
+                modifier = averageAttackModifier(level);
+                break;
+            case GOOD:
+                modifier = goodAttackModifier(level);
+                break;
+            default:
+                throw new IndexOutOfBoundsException("Attack modifier " + attack.name()
+                                                            + " doesn't exist.");
+        }
+
+        return modifier;
+    }
+
 
     /**
      * String label of the given Profession, using its name in Capital Case
@@ -145,19 +190,24 @@ public enum Profession {
     private final WillSave will;
     private final FortitudeSave fortitude;
     private final ReflexSave reflex;
+    private final AttackModifier attack;
 
 
 
 
     private enum WillSave {
-        GOOD, POOR;
+        POOR, GOOD;
     }
 
     private enum FortitudeSave {
-        GOOD, POOR;
+        POOR, GOOD;
     }
 
     private enum ReflexSave {
-        GOOD, POOR;
+        POOR, GOOD;
+    }
+    
+    private enum AttackModifier {
+        POOR, AVERAGE, GOOD;
     }
 }
