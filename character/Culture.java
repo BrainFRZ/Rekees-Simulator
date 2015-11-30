@@ -1,13 +1,13 @@
 /**************************************************************************************************
  *  Program Name:     Rekees Simulator
- *  Class Name:       rekees.Culture
+ *  Class Name:       rekees.character.Culture
  *  Author:           Terry Weiss
- *  Date Written:     October 29, 2015
+ *  Date Written:     November 29, 2015
  *  Program Description:
  *     This is an enumerated list of all the cultures in Rekees. This supports a separation of
  *  cultural benefits for members of a race who weren't born or raised in their homeland.
  **************************************************************************************************/
-package rekees;
+package rekees.character;
 
 /**
  *
