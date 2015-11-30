@@ -4,7 +4,8 @@
  *  Author:           Terry Weiss
  *  Date Written:     November 29, 2015
  *  Program Description:
- *     This class handles the Fighter profession.
+ *     This class handles the Fighter profession. This is the most flexible, and arguably
+ *  most talented, of any warrior.
  **************************************************************************************************/
 package rekees.character.professions;
 
@@ -18,5 +19,16 @@ public class Fighter extends Profession {
         fortitude = FortitudeSave.GOOD;
         reflex    = ReflexSave.GOOD;
         attack    = AttackModifier.GOOD;
+    }
+
+
+    @Override
+    public String getDescription() {
+        return "The most flexible, and arguably most talented, of any warrior.";
+    }
+
+    @Override
+    public String toString() {
+        return "Fighter";
     }
 }

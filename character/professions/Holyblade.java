@@ -4,7 +4,8 @@
  *  Author:           Terry Weiss
  *  Date Written:     November 29, 2015
  *  Program Description:
- *     This class handles the Holyblade profession.
+ *     This class handles the Holyblade profession. A knight in service to the High God, who
+ *  bestows upon them unusual abilities.
  **************************************************************************************************/
 package rekees.character.professions;
 
@@ -18,5 +19,16 @@ public class Holyblade extends Profession {
         fortitude = FortitudeSave.GOOD;
         reflex    = ReflexSave.POOR;
         attack    = AttackModifier.GOOD;
+    }
+
+
+    @Override
+    public String getDescription() {
+        return "A knight in service to the High God, who bestows upon them unusual abilities.";
+    }
+
+    @Override
+    public String toString() {
+        return "Holyblade";
     }
 }

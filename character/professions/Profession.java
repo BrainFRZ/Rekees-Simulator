@@ -20,6 +20,13 @@ package rekees.character.professions;
  * @author Terry Weiss
  */
 public abstract class Profession {
+    protected WillSave will;
+    protected FortitudeSave fortitude;
+    protected ReflexSave reflex;
+    protected AttackModifier attack;
+
+
+
     static final int poorSaveModifier(int level) {
         return (level / 3);
     }
@@ -145,11 +152,8 @@ public abstract class Profession {
     }
 
 
-    protected WillSave will;
-    protected FortitudeSave fortitude;
-    protected ReflexSave reflex;
-    protected AttackModifier attack;
-
+    
+    public abstract String getDescription();
 
 
 

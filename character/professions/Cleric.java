@@ -4,7 +4,8 @@
  *  Author:           Terry Weiss
  *  Date Written:     November 29, 2015
  *  Program Description:
- *     This class handles the Cleric profession.
+ *     This class handles the Cleric profession. This is a warrior-priest of one of Rekees's many
+ *  faiths.
  **************************************************************************************************/
 package rekees.character.professions;
 
@@ -18,5 +19,16 @@ public class Cleric extends Profession {
         fortitude = FortitudeSave.GOOD;
         reflex    = ReflexSave.POOR;
         attack    = AttackModifier.AVERAGE;
+    }
+
+
+    @Override
+    public String getDescription() {
+        return "A warrior-priest of one of Rekees's many faiths.";
+    }
+
+    @Override
+    public String toString() {
+        return "Cleric";
     }
 }

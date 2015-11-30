@@ -1,11 +1,11 @@
 /**************************************************************************************************
  *  Program Name:     Rekees Simulator
- *  Class Name:       rekees.character.professions.Ranger
+ *  Class Name:       rekees.character.professions.Prefect
  *  Author:           Terry Weiss
  *  Date Written:     November 29, 2015
  *  Program Description:
- *     This class handles the Ranger profession. This is a master hunter and woodsman who has the
- *  option of specializing in dual-wielding or archery.
+ *     This class handles the Prefect profession. This is usually a Yuan-Ti who turned unarmed
+ *  combat into an art form.
  **************************************************************************************************/
 package rekees.character.professions;
 
@@ -13,23 +13,22 @@ package rekees.character.professions;
  *
  * @author Terry
  */
-public class Ranger extends Profession {
-    public Ranger() {
-        will      = WillSave.GOOD;
+public class Prefect extends Profession {
+    public Prefect() {
+        will      = WillSave.POOR;
         fortitude = FortitudeSave.GOOD;
-        reflex    = ReflexSave.GOOD;
+        reflex    = ReflexSave.POOR;
         attack    = AttackModifier.GOOD;
     }
 
 
     @Override
     public String getDescription() {
-        return "A master hunter and woodsman who has the option of specializing in dual-wielding or"
-                + " archery.";
+        return "Usually a Yuan-Ti who turned unarmed combat into an art form.";
     }
 
     @Override
     public String toString() {
-        return "Ranger";
+        return "Prefect";
     }
 }

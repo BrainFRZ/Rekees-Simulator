@@ -4,7 +4,8 @@
  *  Author:           Terry Weiss
  *  Date Written:     November 29, 2015
  *  Program Description:
- *     This class handles the Rogue profession.
+ *     This class handles the Rogue profession. This is a very skilled person who chiefly
+ *  specializes in stealth.
  **************************************************************************************************/
 package rekees.character.professions;
 
@@ -18,5 +19,16 @@ public class Rogue extends Profession {
         fortitude = FortitudeSave.POOR;
         reflex    = ReflexSave.GOOD;
         attack    = AttackModifier.AVERAGE;
+    }
+
+
+    @Override
+    public String getDescription() {
+        return "A very skilled person who chiefly specializes in stealth.";
+    }
+
+    @Override
+    public String toString() {
+        return "Rogue";
     }
 }
