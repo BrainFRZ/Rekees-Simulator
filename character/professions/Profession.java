@@ -11,7 +11,7 @@
  * - Add support for Flurry attacks. Design special treatment for mages when wielding staff or
  *   spell.
  **************************************************************************************************/
-package rekees.character;
+package rekees.character.professions;
 
 /**
  * An enumerated list of all the Professions available in Rekees, and defines most of the attributes
@@ -19,58 +19,27 @@ package rekees.character;
  *
  * @author Terry Weiss
  */
-public enum Profession {
-    BARBARIAN   (WillSave.POOR, FortitudeSave.GOOD, ReflexSave.POOR, AttackModifier.GOOD),
-    BARD        (WillSave.GOOD, FortitudeSave.POOR, ReflexSave.GOOD, AttackModifier.AVERAGE),
-    CLERIC      (WillSave.GOOD, FortitudeSave.GOOD, ReflexSave.POOR, AttackModifier.AVERAGE),
-    DRUID       (WillSave.GOOD, FortitudeSave.GOOD, ReflexSave.POOR, AttackModifier.AVERAGE),
-    FIGHTER     (WillSave.POOR, FortitudeSave.GOOD, ReflexSave.GOOD, AttackModifier.GOOD),
-    HOLYBLADE   (WillSave.POOR, FortitudeSave.GOOD, ReflexSave.POOR, AttackModifier.GOOD),
-    MAGE        (WillSave.GOOD, FortitudeSave.GOOD, ReflexSave.GOOD, AttackModifier.POOR),
-    RANGER      (WillSave.GOOD, FortitudeSave.GOOD, ReflexSave.GOOD, AttackModifier.GOOD),
-    ROGUE       (WillSave.POOR, FortitudeSave.POOR, ReflexSave.GOOD, AttackModifier.AVERAGE),
-    WARRIOR     (WillSave.POOR, FortitudeSave.GOOD, ReflexSave.POOR, AttackModifier.GOOD),
-    WIZARD      (WillSave.GOOD, FortitudeSave.POOR, ReflexSave.POOR, AttackModifier.POOR);
-
-
-    private static int poorSaveModifier(int level) {
+public abstract class Profession {
+    static final int poorSaveModifier(int level) {
         return (level / 3);
     }
 
-    private static int goodSaveModifier(int level) {
+    static final int goodSaveModifier(int level) {
         return ((level / 2) + 2);
     }
 
-    private static int poorAttackModifier(int level) {
+    static final int poorAttackModifier(int level) {
         return (level / 2);
     }
 
-    private static int averageAttackModifier(int level) {
+    static final int averageAttackModifier(int level) {
         return (level * 3 / 4);
     }
 
-    private static int goodAttackModifier(int level) {
+    static final int goodAttackModifier(int level) {
         return level;
     }
 
-
-
-    /**
-     * Generates the given Profession
-     *
-     * @param wil <code>WillSave.GOOD</code> if profession has a good will save, or
-     * <code>POOR</code> otherwise
-     * @param fort <code>FortitudeSave.GOOD</code> if profession has a good fortitude save, or
-     * <code>POOR</code> otherwise
-     * @param ref <code>ReflexSave.GOOD</code> if profession has a good reflex save, or
-     * <code>POOR</code> otherwise
-     */
-    Profession(WillSave wil, FortitudeSave fort, ReflexSave ref, AttackModifier atk) {
-        will      = wil;
-        fortitude = fort;
-        reflex    = ref;
-        attack    = atk;
-    }
 
 
     /**
@@ -176,38 +145,27 @@ public enum Profession {
     }
 
 
-    /**
-     * String label of the given Profession, using its name in Capital Case
-     *
-     * @return Profession's name in Capital Case
-     */
-    @Override
-    public String toString() {
-        return name().substring(0, 1).toUpperCase() + name().substring(1).toLowerCase();
-    }
-
-
-    private final WillSave will;
-    private final FortitudeSave fortitude;
-    private final ReflexSave reflex;
-    private final AttackModifier attack;
+    protected WillSave will;
+    protected FortitudeSave fortitude;
+    protected ReflexSave reflex;
+    protected AttackModifier attack;
 
 
 
 
-    private enum WillSave {
+    public enum WillSave {
         POOR, GOOD;
     }
 
-    private enum FortitudeSave {
+    public enum FortitudeSave {
         POOR, GOOD;
     }
 
-    private enum ReflexSave {
+    public enum ReflexSave {
         POOR, GOOD;
     }
 
-    private enum AttackModifier {
+    public enum AttackModifier {
         POOR, AVERAGE, GOOD;
     }
 }

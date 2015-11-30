@@ -1,6 +1,6 @@
 /****************************************************************************
  *  Program Name:     Rekees Simulator
- *  Class Name:       rekees.character.Character
+ *  Class Name:       rekees.character.Race
  *  Author:           Terry Weiss
  *  Date Written:     October 29, 2015
  *  Program Description:

@@ -12,6 +12,7 @@ package rekees.character;
 //import rekees.character.Profession;
 //import rekees.character.Race;
 //import rekees.character.StatusEffect;
+import rekees.character.professions.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +31,6 @@ public class Character {
     private static final int MIN_HP_VALUE = -10;
     private static final int MIN_STAT_VALUE = 0;
     private static final Race DEFAULT_RACE = Race.HUMAN;
-    private static final Profession DEFAULT_PROFESSION = Profession.WARRIOR;
     private static final Culture DEFAULT_CULTURE = Culture.WARRIOR;
 
     private String name;
@@ -57,7 +57,7 @@ public class Character {
         level = 1;
         race = DEFAULT_RACE;
         culture = DEFAULT_CULTURE;
-        profession = DEFAULT_PROFESSION;
+        profession = new Warrior();
 
         maxHP = DEFAULT_HP;
         currentHP = maxHP;
